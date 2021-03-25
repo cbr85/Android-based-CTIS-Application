@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "852873484245",
+    "project_id": "ctis-f6284",
+    "storage_bucket": "ctis-f6284.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852873484245:android:19a2ff915c827b17334f5c",
+        "android_client_info": {
+          "package_name": "com.example.ctis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852873484245-c4tmvkpetpeknotm3likir45pj0eb226.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNSgenup23VwBMaAXG0-cV0OSbWv0VMZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852873484245-c4tmvkpetpeknotm3likir45pj0eb226.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852873484245:android:d70cf29e41af1cd0334f5c",
+        "android_client_info": {
+          "package_name": "com.example.ctisadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852873484245-c4tmvkpetpeknotm3likir45pj0eb226.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNSgenup23VwBMaAXG0-cV0OSbWv0VMZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852873484245-c4tmvkpetpeknotm3likir45pj0eb226.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
