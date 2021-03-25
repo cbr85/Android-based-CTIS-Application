@@ -1,0 +1,3 @@
+include ':ctisadmin'
+include ':app'
+rootProject.name = "CTIS"
