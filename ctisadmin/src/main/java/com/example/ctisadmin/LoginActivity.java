@@ -80,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                                     officer.getPassword().equals(passwordValue)){
                                 result = 1;
                                 if(officer.getCentreId() == null || officer.getCentreId().equals("")){
+                                    Toast.makeText(getApplicationContext(), "Success login",
+                                            Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, RegisterTestCentreActivity.class);
                                     intent.putExtra("officer", officer);
                                     startActivity(intent);
@@ -88,12 +90,16 @@ public class LoginActivity extends AppCompatActivity {
                                 else{
 
                                     if(officer.getPosition().equalsIgnoreCase("manager")){
+                                        Toast.makeText(getApplicationContext(), "Success login",
+                                                Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplication(), MenuActivity.class);
                                         intent.putExtra("officer", officer);
                                         startActivity(intent);
                                         finish();
                                     }
                                     else{
+                                        Toast.makeText(getApplicationContext(), "Success login",
+                                                Toast.LENGTH_SHORT).show();
                                         Intent intent  = new Intent(getApplication(), MenuTesterActivity.class);
                                         intent.putExtra("officer", officer);
                                         startActivity(intent);
@@ -102,9 +108,17 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                             }
+                            else if(officer.getUserName().equals(userNameValue) &&
+                                    !officer.getPassword().equals(passwordValue)){
+                                result = 2;
+                            }
                         }
                         if(result == 0){
-                            Toast.makeText(getApplicationContext(), "There no User with that userName",
+                            Toast.makeText(getApplicationContext(), "Incorrect username",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                        else if(result == 2){
+                            Toast.makeText(getApplicationContext(), "Incorrect password",
                                     Toast.LENGTH_LONG).show();
                         }
                     }

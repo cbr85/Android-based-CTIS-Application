@@ -82,8 +82,8 @@ public class RecordNewTestActivity extends AppCompatActivity {
                         for(QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots){
                             Patient patient1 = documentSnapshots.toObject(Patient.class);
                             if(patient1.getUserName().equals(userNameValue) && patient1.getCentreId().equals(centreOfficer.getCentreId())){
-                                Toast.makeText(getApplicationContext(), "UserName already exist, Update Information",
-                                        Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Username already exist, Update Information",
+                                        Toast.LENGTH_SHORT).show();
                                 Map<String, Object> update = new HashMap<>();
                                 update.put("symptoms", patient.getSymptoms());
                                 update.put("patientType", patient.getPatientType());
@@ -98,6 +98,8 @@ public class RecordNewTestActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
+                                                Toast.makeText(getApplicationContext(), "The Test has been Updated",
+                                                        Toast.LENGTH_SHORT).show();
                                                 finish();
                                             }
                                         });
@@ -128,6 +130,8 @@ public class RecordNewTestActivity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(getApplicationContext(), "New Test has been recorded",
+                                                                Toast.LENGTH_SHORT).show();
                                                         finish();
                                                     }
                                                 });

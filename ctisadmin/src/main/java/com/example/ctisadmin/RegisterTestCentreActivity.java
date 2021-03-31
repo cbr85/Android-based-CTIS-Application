@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,48 +15,45 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignUpActivity extends AppCompatActivity {
+public class RegisterTestCentreActivity extends AppCompatActivity {
 
-    EditText fullName;
-    EditText userName;
-    EditText password;
-    Button signUp;
+    EditText centreName;
+    Button register;
+    CentreOfficer centreOfficer = new CentreOfficer();
 
     CollectionReference collectionReference = FirebaseFirestore.getInstance()
+            .collection("TestCentre");
+    CollectionReference collectionOfficerReference = FirebaseFirestore.getInstance()
             .collection("CentreOfficer");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_register_test_centre);
 
-        fullName = findViewById(R.id.edit_text_full_name);
-        userName = findViewById(R.id.edit_text_user_name);
-        password = findViewById(R.id.edit_text_password);
-        signUp = findViewById(R.id.bottom_sign_up);
+        Intent i = getIntent();
+        centreOfficer = (CentreOfficer) i.getSerializableExtra("officer");
 
-        signUp.setOnClickListener(new View.OnClickListener() {
+        centreName = findViewById(R.id.edit_text_test_centre_name);
+        register = findViewById(R.id.bottom_register_test_center);
+
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String fullNameValue = fullName.getText().toString();
-                String userNameValue = userName.getText().toString();
-                String passwordValue = password.getText().toString();
-                signUp(fullNameValue, userNameValue, passwordValue);
+                String centreNameValue = centreName.getText().toString();
+                registerTestCentre(centreNameValue);
             }
         });
     }
 
-    public void signUp(String fullNameValue, final String userNameValue, String passwordValue) {
-        final CentreOfficer centreOfficer = new CentreOfficer("", userNameValue,
-                passwordValue, fullNameValue, "manager");
-
-        collectionReference.get()
+    public void registerTestCentre(String centreNameValue){
+        TestCentre testCentre = new TestCentre("", centreNameValue);
+        collectionReference.add(testCentre)
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -65,18 +61,13 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 })
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for(QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots){
-                            CentreOfficer officer = documentSnapshots.toObject(CentreOfficer.class);
-                            if(officer.getUserName().equals(userNameValue)){
-                                Toast.makeText(getApplicationContext(), "Username already been used",
-                                        Toast.LENGTH_LONG).show();
-                                return;
-                            }
-                        }
-                        collectionReference.add(centreOfficer)
+                    public void onSuccess(final DocumentReference documentReference) {
+                        Map<String, Object> update = new HashMap<>();
+                        update.put("centreId", documentReference.getId());
+                        centreOfficer.setCentreId(documentReference.getId());
+                        collectionReference.document(documentReference.getId()).update(update)
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
@@ -84,12 +75,13 @@ public class SignUpActivity extends AppCompatActivity {
                                                 Toast.LENGTH_LONG).show();
                                     }
                                 })
-                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-                                        Map<String, Object> update = new HashMap<>();
-                                        update.put("centreOfficerId", documentReference.getId());
-                                        collectionReference.document(documentReference.getId()).update(update)
+                                    public void onSuccess(Void aVoid) {
+                                        Map<String, Object> updateOfficer = new HashMap<>();
+                                        updateOfficer.put("centreId", centreOfficer.getCentreId());
+
+                                        collectionOfficerReference.document(centreOfficer.getCentreOfficerId()).update(updateOfficer)
                                                 .addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
@@ -100,9 +92,10 @@ public class SignUpActivity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
-                                                        Toast.makeText(getApplicationContext(), "Success created new account",
-                                                                Toast.LENGTH_LONG).show();
-                                                        Intent intent = new Intent(getApplication(), LoginActivity.class);
+                                                        Toast.makeText(getApplicationContext(), "Register new Test Centre",
+                                                                Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(getApplication(), MenuActivity.class);
+                                                        intent.putExtra("officer", (Serializable) centreOfficer);
                                                         startActivity(intent);
                                                         finish();
                                                     }
@@ -111,5 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 });
                     }
                 });
+
     }
 }

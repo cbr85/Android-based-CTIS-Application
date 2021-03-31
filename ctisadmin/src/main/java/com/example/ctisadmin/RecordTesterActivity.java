@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,12 +21,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignUpActivity extends AppCompatActivity {
+public class RecordTesterActivity extends AppCompatActivity {
 
     EditText fullName;
     EditText userName;
     EditText password;
-    Button signUp;
+    Button record;
+    CentreOfficer centreOfficerUpper = new CentreOfficer();;
 
     CollectionReference collectionReference = FirebaseFirestore.getInstance()
             .collection("CentreOfficer");
@@ -35,27 +35,30 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_record_tester);
+
+        Intent i = getIntent();
+        centreOfficerUpper = (CentreOfficer) i.getSerializableExtra("officer");
 
         fullName = findViewById(R.id.edit_text_full_name);
         userName = findViewById(R.id.edit_text_user_name);
         password = findViewById(R.id.edit_text_password);
-        signUp = findViewById(R.id.bottom_sign_up);
+        record = findViewById(R.id.bottom_record_tester);
 
-        signUp.setOnClickListener(new View.OnClickListener() {
+        record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String fullNameValue = fullName.getText().toString();
                 String userNameValue = userName.getText().toString();
                 String passwordValue = password.getText().toString();
-                signUp(fullNameValue, userNameValue, passwordValue);
+                recordTester(fullNameValue, userNameValue, passwordValue);
             }
         });
     }
 
-    public void signUp(String fullNameValue, final String userNameValue, String passwordValue) {
+    public void recordTester(String fullNameValue, final String userNameValue, String passwordValue) {
         final CentreOfficer centreOfficer = new CentreOfficer("", userNameValue,
-                passwordValue, fullNameValue, "manager");
+                passwordValue, fullNameValue, "tester", centreOfficerUpper.getCentreId());
 
         collectionReference.get()
                 .addOnFailureListener(new OnFailureListener() {
@@ -100,10 +103,8 @@ public class SignUpActivity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
-                                                        Toast.makeText(getApplicationContext(), "Success created new account",
-                                                                Toast.LENGTH_LONG).show();
-                                                        Intent intent = new Intent(getApplication(), LoginActivity.class);
-                                                        startActivity(intent);
+                                                        Toast.makeText(getApplicationContext(), "New Account has been set for new Tester",
+                                                                Toast.LENGTH_SHORT).show();
                                                         finish();
                                                     }
                                                 });
