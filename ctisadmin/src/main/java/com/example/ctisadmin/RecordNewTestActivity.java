@@ -82,8 +82,8 @@ public class RecordNewTestActivity extends AppCompatActivity {
                         for(QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots){
                             Patient patient1 = documentSnapshots.toObject(Patient.class);
                             if(patient1.getUserName().equals(userNameValue) && patient1.getCentreId().equals(centreOfficer.getCentreId())){
-                                Toast.makeText(getApplicationContext(), "Username already exist, Update Information",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "UserName already exist, Update Information",
+                                        Toast.LENGTH_LONG).show();
                                 Map<String, Object> update = new HashMap<>();
                                 update.put("symptoms", patient.getSymptoms());
                                 update.put("patientType", patient.getPatientType());

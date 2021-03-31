@@ -41,7 +41,7 @@ public class MenuTesterActivity extends AppCompatActivity {
             }
         });
     }
-
+  
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Logout from app",

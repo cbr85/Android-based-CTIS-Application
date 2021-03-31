@@ -50,6 +50,7 @@
         android:text="Password"
         android:textColor="@color/colorPrimaryWhite" />
 
+
     <EditText
         android:id="@+id/edit_text_password"
         android:layout_width="match_parent"
