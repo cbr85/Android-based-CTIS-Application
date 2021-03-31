@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="patient_type">
+        <item>returnee</item>
+        <item>quarantined</item>
+        <item>close contact</item>
+        <item>infected</item>
+        <item>suspected</item>
+    </string-array>
+</resources>
