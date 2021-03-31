@@ -8,29 +8,29 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".MenuTesterActivity">
+    tools:context=".RegisterTestCentreActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Main Menu Tester"
+        android:text="Test Centre Name"
+        android:textColor="@color/colorPrimaryWhite" />
+
+    <EditText
+        android:id="@+id/edit_text_test_centre_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Test Centre Name"
+        android:lines="1"
+        android:maxLines="1"
         android:textColor="@color/colorPrimaryWhite"
-        android:textSize="25dp" />
+        android:textColorHint="@color/colorPrimaryWhite" />
 
     <Button
-        android:id="@+id/bottom_new_patient"
+        android:id="@+id/bottom_register_test_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="Menage Patient" />
-
-    <Button
-        android:id="@+id/bottom_update_test_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:text="Update Test Result" />
-
+        android:text="Register" />
 </LinearLayout>

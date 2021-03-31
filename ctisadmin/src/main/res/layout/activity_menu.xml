@@ -8,29 +8,29 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".MenuTesterActivity">
+    tools:context=".MenuActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Menu Tester"
+        android:text="Main Menu Manager"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="25dp" />
 
     <Button
-        android:id="@+id/bottom_new_patient"
+        android:id="@+id/bottom_record_tester"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="Menage Patient" />
+        android:text="Record Tester" />
 
     <Button
-        android:id="@+id/bottom_update_test_result"
+        android:id="@+id/bottom_manage_test_kit_stock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="Update Test Result" />
+        android:text="Manage Test Kit Stock" />
 
 </LinearLayout>

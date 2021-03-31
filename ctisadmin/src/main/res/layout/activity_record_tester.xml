@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".SignUpActivity">
+    tools:context=".RecordTesterActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -50,7 +50,6 @@
         android:text="Password"
         android:textColor="@color/colorPrimaryWhite" />
 
-
     <EditText
         android:id="@+id/edit_text_password"
         android:layout_width="match_parent"
@@ -63,10 +62,11 @@
         android:textColorHint="@color/colorPrimaryWhite" />
 
     <Button
-        android:id="@+id/bottom_sign_up"
+        android:id="@+id/bottom_record_tester"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="SIGN UP" />
+        android:text="Record" />
+
 </LinearLayout>

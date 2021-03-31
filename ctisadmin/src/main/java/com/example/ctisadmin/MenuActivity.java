@@ -8,40 +8,44 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MenuTesterActivity extends AppCompatActivity {
+import java.io.Serializable;
 
-    Button newPatient;
-    Button updateTestResult;
+public class MenuActivity extends AppCompatActivity {
+
+    Button recordTester;
+    Button manageKit;
     CentreOfficer centreOfficer = new CentreOfficer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_tester);
+        setContentView(R.layout.activity_menu);
 
         Intent i = getIntent();
         centreOfficer = (CentreOfficer) i.getSerializableExtra("officer");
 
-        newPatient = findViewById(R.id.bottom_new_patient);
-        updateTestResult = findViewById(R.id.bottom_update_test_result);
+        recordTester = findViewById(R.id.bottom_record_tester);
+        manageKit = findViewById(R.id.bottom_manage_test_kit_stock);
 
-        newPatient.setOnClickListener(new View.OnClickListener() {
+        recordTester.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplication(), RecordNewTestActivity.class);
-                intent.putExtra("officer", centreOfficer);
+                Intent intent = new Intent(getApplication(), RecordTesterActivity.class);
+                intent.putExtra("officer", (Serializable) centreOfficer);
                 startActivity(intent);
             }
         });
 
-        updateTestResult.setOnClickListener(new View.OnClickListener() {
+        manageKit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplication(), ManageTestKitStockActivity.class);
+                intent.putExtra("officer", (Serializable) centreOfficer);
+                startActivity(intent);
             }
         });
     }
-  
+
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Logout from app",
