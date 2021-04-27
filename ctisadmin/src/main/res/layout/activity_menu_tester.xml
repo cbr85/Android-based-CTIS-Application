@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".MenuTesterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu Tester"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/bottom_new_patient"
@@ -14,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="Menage Patient" />
+        android:text="Manage Patient" />
 
     <Button
         android:id="@+id/bottom_update_test_result"
@@ -23,5 +31,21 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:text="Update Test Result" />
+
+    <Button
+        android:id="@+id/bottom_generate_test_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="Generate Test Report" />
+
+    <Button
+        android:id="@+id/bottom_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="Logout" />
 
 </LinearLayout>

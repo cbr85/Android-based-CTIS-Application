@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".RecordNewTestActivity">
@@ -11,50 +12,63 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Full Name" />
+        android:text="Full Name"
+        android:textColor="@color/colorPrimaryWhite" />
 
     <EditText
         android:id="@+id/edit_text_full_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:digits="0123456789qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP "
         android:hint="Full Name"
         android:lines="1"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="User Name" />
+        android:text="User Name"
+        android:textColor="@color/colorPrimaryWhite" />
 
     <EditText
         android:id="@+id/edit_text_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:digits="0123456789qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP "
         android:hint="User Name"
         android:lines="1"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Password" />
+        android:text="Password"
+        android:textColor="@color/colorPrimaryWhite" />
 
     <EditText
         android:id="@+id/edit_text_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:digits="0123456789qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP "
         android:hint="Password"
         android:inputType="textPassword"
         android:lines="1"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Patient Type" />
+        android:text="Patient Type"
+        android:textColor="@color/colorPrimaryWhite" />
 
     <Spinner
         android:id="@+id/spinner_patient_type"
@@ -67,13 +81,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Symptoms" />
+        android:text="Symptoms"
+        android:textColor="@color/colorPrimaryWhite" />
 
     <EditText
         android:id="@+id/edit_text_symptoms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Symptoms" />
+        android:digits="0123456789qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP "
+        android:hint="Symptoms"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Test Kit ID"
+        android:textColor="@color/colorPrimaryWhite" />
+
+    <Spinner
+        android:id="@+id/spinner_testKitId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
 
     <Button
         android:id="@+id/bottom_record_patient"
