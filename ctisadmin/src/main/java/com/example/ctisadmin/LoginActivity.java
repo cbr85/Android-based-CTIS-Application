@@ -48,6 +48,18 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userNameValue = userName.getText().toString();
                 String passwordValue = password.getText().toString();
+
+                if(userNameValue.isEmpty() || userNameValue.equalsIgnoreCase("")){
+                    userName.setError("Cannot be empty");
+                    userName.requestFocus();
+                    return;
+                }
+
+                if(passwordValue.isEmpty() || passwordValue.equalsIgnoreCase("")){
+                    password.setError("Cannot be empty");
+                    password.requestFocus();
+                    return;
+                }
                 login(userNameValue, passwordValue);
             }
         });
