@@ -1,15 +1,14 @@
 package com.example.ctisadmin;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -48,6 +47,31 @@ public class SignUpActivity extends AppCompatActivity {
                 String fullNameValue = fullName.getText().toString();
                 String userNameValue = userName.getText().toString();
                 String passwordValue = password.getText().toString();
+
+                if(fullNameValue.isEmpty() || fullNameValue.equalsIgnoreCase("")){
+                    fullName.setError("Cannot be empty");
+                    fullName.requestFocus();
+                    return;
+                }
+
+                if(userNameValue.isEmpty() || userNameValue.equalsIgnoreCase("")){
+                    userName.setError("Cannot be empty");
+                    userName.requestFocus();
+                    return;
+                }
+
+                if(passwordValue.isEmpty() || passwordValue.equalsIgnoreCase("")){
+                    password.setError("Cannot be empty");
+                    password.requestFocus();
+                    return;
+                }
+
+                if(passwordValue.length() < 6){
+                    password.setError("Password must more then 6 character");
+                    password.requestFocus();
+                    return;
+                }
+
                 signUp(fullNameValue, userNameValue, passwordValue);
             }
         });
