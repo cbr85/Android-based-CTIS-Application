@@ -171,6 +171,7 @@ public class RecordNewTestActivity extends AppCompatActivity {
                                                 else{
                                                     recordCovidTest(patient1.getPatientId(), centreOfficer, testKidIdValue);
                                                 }
+
                                             }
                                         });
                                 return;

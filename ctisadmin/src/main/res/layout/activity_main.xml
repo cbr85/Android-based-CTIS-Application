@@ -4,43 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Welcome to"
-        android:textSize="15dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="CTIS"
-        android:textSize="17dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="COVID TESTING INFORMATION SYSTEM"
-        android:textSize="17dp" />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo_text_n" />
 
     <Button
         android:id="@+id/bottom_login"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="LOG IN"/>
+        android:layout_marginTop="10dp"
+        android:text="LOG IN" />
 
     <Button
         android:id="@+id/bottom_sign_up"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="SIGN UP"/>
+        android:layout_marginTop="10dp"
+        android:text="SIGN UP" />
 </LinearLayout>

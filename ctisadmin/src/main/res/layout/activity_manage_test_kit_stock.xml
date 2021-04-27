@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ManageTestKitStockActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Name"
+        android:textColor="@color/colorPrimaryWhite" />
+
+    <EditText
+        android:id="@+id/test_kit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789qazwsxedcrfvtgbyhnujmikolpQAZWSXEDCRFVTGBYHNUJMIKOLP "
+        android:hint="Test Name"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Available Stock"
+        android:textColor="@color/colorPrimaryWhite" />
+
+    <EditText
+        android:id="@+id/test_kit_stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="0123456789"
+        android:hint="Number"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textColorHint="@color/colorPrimaryWhite" />
+
+    <Button
+        android:id="@+id/test_kit_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="Record" />
+
+</LinearLayout>
